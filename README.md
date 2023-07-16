@@ -39,3 +39,5 @@ go build main.go
 go run main.go
 # Ausgabe: Hello World
 ```
+### Der Go-Workspace
+Nach der Installation mit `apt install golang` wurde bei mir im Verzeichnis `/usr/lib/go` der "Go-Workspace" mit z.B. den Ordnern `/bin` und `/source` angelegt. Dieses Verzeichnis kann, muss aber nicht genutzt werden.
