@@ -39,5 +39,11 @@ go build main.go
 go run main.go
 # Ausgabe: Hello World
 ```
-### Der Go-Workspace
-Nach der Installation mit `apt install golang` wurde bei mir im Verzeichnis `/usr/lib/go` der "Go-Workspace" mit z.B. den Ordnern `/bin` und `/source` angelegt. Dieses Verzeichnis kann, muss aber nicht genutzt werden.
+### Der Go-Workspace / Go-Module
+Nach der Installation mit `apt install golang` wurde bei mir im Verzeichnis `/usr/lib/go` der "Go-Workspace" mit z.B. den Ordnern `/bin` und `/source` angelegt. Dieses Verzeichnis kann, muss aber nicht genutzt werden, seitdem 2018 die Go-Module eingeführt wurden.
+```
+# Einrichten eines Go-Modul-Projekts, z.B.:
+cd /home/tori/microservices
+go mod init github.com/richtertoralf/Microservices_Go
+```
+Dabei wird die Datei (Manifestdatei) `go.mod` angelegt, in der vorallem Abhängikeiten verwaltet werden können.
