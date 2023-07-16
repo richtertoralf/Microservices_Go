@@ -79,4 +79,7 @@ go build serverapi.go
 go run serverapi.go
 ```
 Damit habe ich einen sehr einfachen Server erstellt, der HTTP-Anfragen verarbeiten kann.
-Mein "Debian-Server", auf dem ich arbeite hat die IP: `192.168.95.127`. Da ich in der Funktion `handleRequests()` den Port "10000" bestimmt habe, kann ich so jetzt diese API aufrufen `http://192.168.95.127:10000/` und bekomme im Browser diese Antwort: "Welcome to the HomePage!"
+Mein "Debian-Server", auf dem ich arbeite hat die IP: `192.168.95.127`. Da ich in der Funktion `handleRequests()` den Port "10000" bestimmt habe, kann ich so jetzt diese API aufrufen `http://192.168.95.127:10000/` und bekomme im Browser diese Antwort: "Welcome to the HomePage!" und gleichzeitig im Terminal "Endpoint Hit: homePage"
+Beim Googeln habe ich diese Seite gefunden, bei der das Thema "REST-API" gut erklärt wird:
+https://tutorialedge.net/golang/creating-restful-api-with-golang/
+
