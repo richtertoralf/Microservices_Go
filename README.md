@@ -26,6 +26,7 @@ mkdir HelloWorld
 cd HelloWorld
 nano main.go
 ```
+und hier der Quellcode:
 ```
 package main
 import "fmt"
@@ -36,5 +37,5 @@ func main() {
 ```
 go build main.go
 go run main.go
-# Hello World
+# Ausgabe: Hello World
 ```
