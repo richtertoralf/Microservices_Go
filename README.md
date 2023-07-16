@@ -47,3 +47,36 @@ cd /home/tori/microservices
 go mod init github.com/richtertoralf/Microservices_Go
 ```
 Dabei wird die Datei (Manifestdatei) `go.mod` angelegt, in der vorallem Abhängikeiten verwaltet werden können.
+
+### API - Erste Schritte
+Ich erstelle eine neues Verzeichnis `/home/tori/microservices/ServerAPI` und erstelle dort mit `nano serverapi.go` eine Datei mit folgendem Inhalt:
+```
+package main
+
+import (
+        "fmt"
+        "log"
+        "net/http"
+)
+
+func homePage(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Welcome to the HomePage!")
+        fmt.Println("Endpoint Hit: homePage")
+}
+
+func handleRequests() {
+        http.HandleFunc("/", homePage)
+        log.Fatal(http.ListenAndServe(":10000", nil))
+}
+
+func main() {
+        handleRequests()
+}
+```
+Übrigens kann mit `go fmt serverapi.go` diese Datei automatisch formatieren lassen.
+```
+go build serverapi.go
+go run serverapi.go
+```
+Damit habe ich einen sehr einfachen Server erstellt, der HTTP-Anfragen verarbeiten kann.
+Mein "Debian-Server", auf dem ich arbeite hat die IP: `192.168.95.127`. Da ich in der Funktion `handleRequests()` den Port "10000" bestimmt habe, kann ich so jetzt diese API aufrufen `http://192.168.95.127:10000/` und bekomme im Browser diese Antwort: "Welcome to the HomePage!"
