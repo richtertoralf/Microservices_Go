@@ -104,3 +104,9 @@ func main() {
 ```
 ### RESTful HTTP-Services und JSON
 https://www.source-fellows.com/json-rest-service-mit-golang/
+
+> Traditionell habe ich meine API´s mit PHP umgesetzt und dahinter mit einer SQL Datenbank verbunden.  
+> Schön ist auch die Verwendung von Node.js (JavaScript), JSON und MongoDB.  
+> Mal schauen, was mit GO so geht und wie es sich anfühlt.  
+
+und hier noch ein Link: https://norberteder.com/web-api-und-datenbankzugriff-mit-go/
