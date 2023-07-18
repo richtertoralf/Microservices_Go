@@ -48,32 +48,29 @@ go mod init github.com/richtertoralf/Microservices_Go
 ```
 Dabei wird die Datei (Manifestdatei) `go.mod` angelegt, in der vorallem Abhängikeiten verwaltet werden können.
 
-### API - Erste Schritte
+### API - Erste Schritte / HTTP-Services
 Ich erstelle eine neues Verzeichnis `/home/tori/microservices/ServerAPI` und erstelle dort mit `nano serverapi.go` eine Datei mit folgendem Inhalt:
 ```
 package main
-
 import (
         "fmt"
         "log"
         "net/http"
 )
-
 func homePage(w http.ResponseWriter, r *http.Request) {
         fmt.Fprintf(w, "Welcome to the HomePage!")
         fmt.Println("Endpoint Hit: homePage")
 }
-
 func handleRequests() {
         http.HandleFunc("/", homePage)
         log.Fatal(http.ListenAndServe(":10000", nil))
 }
-
 func main() {
         handleRequests()
 }
 ```
-Übrigens kann mit `go fmt serverapi.go` diese Datei automatisch formatieren lassen.
+Übrigens kann man mit `go fmt serverapi.go` diese Datei automatisch formatieren lassen.  
+Jetzt noch:
 ```
 go build serverapi.go
 go run serverapi.go
@@ -83,3 +80,27 @@ Mein "Debian-Server", auf dem ich arbeite hat die IP: `192.168.95.127`. Da ich i
 Beim Googeln habe ich diese Seite gefunden, bei der das Thema "REST-API" gut erklärt wird:  
 https://tutorialedge.net/golang/creating-restful-api-with-golang/  
 
+### JSON - API
+```
+package main
+import (
+        "encoding/json"
+        "fmt"
+)
+type Customer struct {
+        ID        int    `json:"id,omitempty"`
+        Firstname string `json:"first,omitempty"`
+        Lastname  string `json:"last,omitempty"`
+}
+func main() {
+        customer := &Customer{ID: 1,
+                Firstname: "Hans", Lastname: "Wurst"}
+        bites, _ := json.Marshal(customer)
+        fmt.Println(string(bites))
+        customer2 := &Customer{}
+        json.Unmarshal(bites, customer2)
+        fmt.Println(customer2.Firstname)
+}
+```
+### RESTful HTTP-Services und JSON
+https://www.source-fellows.com/json-rest-service-mit-golang/
