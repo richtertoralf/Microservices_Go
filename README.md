@@ -81,6 +81,7 @@ Beim Googeln habe ich diese Seite gefunden, bei der das Thema "REST-API" gut erk
 https://tutorialedge.net/golang/creating-restful-api-with-golang/  
 
 ### JSON - API
+Quelle: "Mikroservices mit Go", Kristian Köhler, Rheinwerk Computing  
 ```
 package main
 import (
